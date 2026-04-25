@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonar Mine Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Sonar Mine Detection</h1>
+        <p class="subtitle">ANN Powered Prediction System</p>
+
+        <form method="POST">
+            <div class="grid">
+                {% for i in range(1,61) %}
+                <input type="number" step="any" name="f{{i}}" placeholder="Feature {{i}}" required>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            Prediction: <span>{{ prediction }}</span>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
